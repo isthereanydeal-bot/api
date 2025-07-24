@@ -13,12 +13,22 @@ java {
 	}
 }
 
+bootJar {
+    archiveFileName = "isthereanydeal.jar" // 파일 이름 지정
+    enabled = true
+}
+
 repositories {
 	mavenCentral()
 }
 
 dependencies {
+	implementation "org.springframework.boot:spring-boot-starter-web"
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compileOnly "org.projectlombok:lombok"
+    annotationProcessor "org.projectlombok:lombok"
+
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
