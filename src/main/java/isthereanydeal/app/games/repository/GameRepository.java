@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository
-public interface GameRepository extends JpaRepository<Game, Long> {
-    Optional<Game> findByName(String name);
+public interface GameRepository extends JpaRepository<Game, String> {
 }
