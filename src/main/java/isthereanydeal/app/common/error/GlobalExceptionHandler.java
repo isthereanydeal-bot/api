@@ -21,15 +21,15 @@ public class GlobalExceptionHandler {
     }
 
     private String resolveReasonPhrase(HttpStatusCode statusCode) {
-    if (statusCode instanceof HttpStatus httpStatus) {
-        return httpStatus.getReasonPhrase();
+        if (statusCode instanceof HttpStatus httpStatus) {
+            return httpStatus.getReasonPhrase();
+        }
+        try {
+            return HttpStatus.valueOf(statusCode.value()).getReasonPhrase();
+        } catch (IllegalArgumentException e) {
+            return "Unknown";
+        }
     }
-    try {
-        return HttpStatus.valueOf(statusCode.value()).getReasonPhrase();
-    } catch (IllegalArgumentException e) {
-        return "Unknown";
-    }
-}
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleAny(Exception ex, HttpServletRequest req) {

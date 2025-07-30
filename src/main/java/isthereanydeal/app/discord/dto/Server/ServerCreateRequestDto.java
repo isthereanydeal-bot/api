@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.math.BigInteger;
 
 @Getter
-public class ServeCreateRequestDto {
+public class ServerCreateRequestDto {
     @NotNull
     private BigInteger id;
 }

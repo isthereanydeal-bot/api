@@ -19,7 +19,7 @@ public class PopularDealsService {
         }
         popularDealsRepository.deleteAll();  // Clear existing deals before saving new ones
         for (PopularDeals deal : popularDeals) {
-            if (deal.getId() == null || deal.getGame() == null) {
+            if (deal.getGame() == null) {
                 continue; // Skip invalid deals
             }
             popularDealsRepository.save(deal);

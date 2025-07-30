@@ -24,7 +24,7 @@ public class ServerController {
     }
 
     @PostMapping()
-    public ResponseEntity<ServerResponseDto> createServer(@RequestBody ServeCreateRequestDto serverRequestDto) {
+    public ResponseEntity<ServerResponseDto> createServer(@RequestBody ServerCreateRequestDto serverRequestDto) {
         Server server = new Server();
         server.setId(serverRequestDto.getId());
         Server savedServer = serverRepository.save(server);

@@ -46,7 +46,7 @@ public class GameApplication {
             return results; // Return empty list if no data found
         }
         for (JsonNode gameNode : data) {
-            JsonNode assetsNode = data.get("assets");
+            JsonNode assetsNode = gameNode.get("assets");
             String banner = GameAssetsUtils.GetBanner(assetsNode);
 
             GameSearchResponseDto game = GameSearchResponseDto.from(
